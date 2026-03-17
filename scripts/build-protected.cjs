@@ -42,7 +42,7 @@ console.log('    Obfuscated:', result.getObfuscatedCode().length, 'bytes');
 // Step 3: Run electron-builder
 console.log('[3/4] Building with electron-builder...');
 try {
-    execSync('npx electron-builder', { stdio: 'inherit' });
+    execSync('npx electron-builder --publish always', { stdio: 'inherit' });
 } catch (err) {
     console.error('[Build] electron-builder failed');
     fs.copyFileSync('main.js.bak', 'main.js');

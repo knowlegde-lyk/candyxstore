@@ -220,7 +220,10 @@ ipcMain.handle('run-script', async (event, scriptPath, injectedInput) => {
 ipcMain.handle('save-license-key', async (_event, key) => {
     return new Promise((resolve) => {
         const sanitized = key.replace(/[^a-zA-Z0-9\-]/g, '');
-        const ps = spawn('reg', ['add', 'HKCU\\SOFTWARE\\boostfps', '/v', 'key', '/t', 'REG_SZ', '/d', sanitized, '/f'], { windowsHide: true, shell: true });
+        const regPath = sanitized.toUpperCase().startsWith('ACCESS')
+            ? 'HKCU\\SOFTWARE\\boostfps2'
+            : 'HKCU\\SOFTWARE\\boostfps';
+        const ps = spawn('reg', ['add', regPath, '/v', 'key', '/t', 'REG_SZ', '/d', sanitized, '/f'], { windowsHide: true, shell: true });
         ps.on('close', () => resolve(true));
         ps.on('error', () => resolve(false));
     });
