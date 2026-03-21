@@ -1,7 +1,7 @@
 {
   "name": "candyxoptimizer",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.0.3",
   "main": "main.js",
   "type": "module",
   "scripts": {
@@ -50,8 +50,10 @@
   "dependencies": {
     "electron-updater": "^6.8.3",
     "lucide-react": "^0.575.0",
+    "postprocessing": "^6.39.0",
     "react": "^19.2.0",
-    "react-dom": "^19.2.0"
+    "react-dom": "^19.2.0",
+    "three": "^0.183.2"
   },
   "devDependencies": {
     "@electron/fuses": "^2.1.0",
@@ -61,7 +63,7 @@
     "@vitejs/plugin-react": "^5.1.1",
     "concurrently": "^9.2.1",
     "cross-env": "^10.1.0",
-    "electron": "^40.6.1",
+    "electron": "^33.4.11",
     "electron-builder": "^26.8.1",
     "eslint": "^9.39.1",
     "eslint-plugin-react-hooks": "^7.0.1",
